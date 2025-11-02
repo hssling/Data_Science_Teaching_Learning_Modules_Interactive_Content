@@ -268,6 +268,9 @@ class DocumentationCompiler:
     <div class="header">
         <h1>🚀 Comprehensive Data Science Curriculum</h1>
         <p>Complete Documentation - Interactive HTML Version</p>
+        <p><strong>Author:</strong> Dr. Siddalingaiah H S, Professor, Community Medicine</p>
+        <p><strong>Institution:</strong> Shridevi Institute of Medical Sciences and Research Hospital, Tumkur</p>
+        <p><strong>Contact:</strong> hssling@yahoo.com | 8941087719</p>
         <p><strong>Generated:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
     </div>
 
@@ -389,42 +392,235 @@ class DocumentationCompiler:
         else:
             return 'general'
 
+    def create_pdf_optimized_html(self):
+        """Create PDF-optimized HTML with compact spacing"""
+        print("📄 Creating PDF-optimized HTML template...")
+
+        markdown_files = self.collect_all_markdown()
+
+        # Compact HTML template for PDF
+        html_template = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Science Curriculum - PDF Version</title>
+    <style>
+        @media print {{
+            body {{ margin: 0; }}
+            .page-break {{ page-break-before: always; }}
+        }}
+        body {{
+            font-family: 'Times New Roman', serif;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #000;
+            margin: 0;
+            padding: 15px;
+            max-width: none;
+        }}
+        .header {{
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }}
+        .title {{ font-size: 18px; font-weight: bold; margin-bottom: 5px; }}
+        .subtitle {{ font-size: 14px; margin-bottom: 5px; }}
+        .author-info {{ font-size: 11px; margin-bottom: 10px; }}
+        .toc {{
+            margin-bottom: 15px;
+        }}
+        .toc-title {{
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-decoration: underline;
+        }}
+        .toc-item {{
+            margin-bottom: 3px;
+            font-size: 11px;
+        }}
+        .section {{
+            margin-bottom: 12px;
+        }}
+        .section-title {{
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 3px;
+        }}
+        .file-info {{
+            font-size: 10px;
+            color: #666;
+            margin-bottom: 8px;
+            font-style: italic;
+        }}
+        .content {{
+            margin-bottom: 8px;
+        }}
+        .content p {{
+            margin: 4px 0;
+        }}
+        .content ul, .content ol {{
+            margin: 4px 0;
+            padding-left: 20px;
+        }}
+        .content li {{
+            margin: 2px 0;
+        }}
+        .content h1, .content h2, .content h3,
+        .content h4, .content h5, .content h6 {{
+            margin: 8px 0 4px 0;
+            font-size: 13px;
+            font-weight: bold;
+        }}
+        .content h1 {{ font-size: 15px; }}
+        .content h2 {{ font-size: 14px; }}
+        .content pre {{
+            background: #f5f5f5;
+            padding: 5px;
+            margin: 5px 0;
+            font-size: 10px;
+            font-family: 'Courier New', monospace;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+        }}
+        .content code {{
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            background: #f0f0f0;
+            padding: 1px 3px;
+        }}
+        .content table {{
+            border-collapse: collapse;
+            margin: 5px 0;
+            font-size: 11px;
+        }}
+        .content th, .content td {{
+            border: 1px solid #666;
+            padding: 3px 5px;
+            text-align: left;
+        }}
+        .content th {{
+            background: #e0e0e0;
+            font-weight: bold;
+        }}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">📚 Comprehensive Data Science Curriculum</div>
+        <div class="subtitle">Complete Documentation - PDF Version</div>
+        <div class="author-info">
+            <strong>Author:</strong> Dr. Siddalingaiah H S, Professor, Community Medicine<br>
+            <strong>Institution:</strong> Shridevi Institute of Medical Sciences and Research Hospital, Tumkur<br>
+            <strong>Contact:</strong> hssling@yahoo.com | 8941087719<br>
+            <strong>Generated:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+        </div>
+    </div>
+
+    <div class="toc">
+        <div class="toc-title">Table of Contents</div>
+"""
+
+        # Add table of contents
+        for i, file_info in enumerate(markdown_files, 1):
+            html_template += f'        <div class="toc-item">{i}. {file_info["title"]}</div>\n'
+
+        html_template += "    </div>\n"
+
+        # Add content sections
+        for i, file_info in enumerate(markdown_files, 1):
+            # Convert markdown to HTML
+            html_content = markdown.markdown(file_info['content'], extensions=['tables', 'fenced_code'])
+
+            html_template += f"""
+    <div class="section">
+        <div class="section-title">{i}. {file_info['title']}</div>
+        <div class="file-info">File: {file_info['path']}</div>
+        <div class="content">
+            {html_content}
+        </div>
+    </div>
+"""
+
+        html_template += """
+</body>
+</html>"""
+
+        # Save PDF-optimized HTML file
+        pdf_html_file = self.output_dir / "curriculum_pdf_version.html"
+        with open(pdf_html_file, 'w', encoding='utf-8') as f:
+            f.write(html_template)
+
+        print(f"✅ PDF-optimized HTML saved: {pdf_html_file}")
+        return str(pdf_html_file)
+
     def create_pdf_documentation(self):
         """Create PDF documentation with table of contents"""
         print("📄 Creating PDF documentation...")
 
         try:
-            # First create HTML, then convert to PDF
-            html_file = self.create_html_documentation()
+            # Try multiple PDF generation methods
+            pdf_file = self.output_dir / "curriculum_complete.pdf"
 
-            # Try wkhtmltopdf first
+            # Method 1: Try xhtml2pdf (already installed)
             try:
-                # PDF options
-                pdf_options = {
-                    'page-size': 'A4',
-                    'margin-top': '0.75in',
-                    'margin-right': '0.75in',
-                    'margin-bottom': '0.75in',
-                    'margin-left': '0.75in',
-                    'encoding': 'UTF-8',
-                    'no-outline': None,
-                    'enable-local-file-access': None
-                }
+                print("🔄 Attempting PDF generation with xhtml2pdf...")
+                from xhtml2pdf import pisa
+
+                # Use PDF-optimized HTML
+                html_file = self.create_pdf_optimized_html()
+                with open(html_file, 'r', encoding='utf-8') as f:
+                    html_content = f.read()
 
                 # Convert HTML to PDF
-                pdf_file = self.output_dir / "curriculum_complete.pdf"
-                pdfkit.from_file(html_file, str(pdf_file), options=pdf_options)
+                with open(pdf_file, 'wb') as f:
+                    pisa.CreatePDF(html_content, dest=f)
 
-                print(f"✅ PDF documentation saved: {pdf_file}")
-                return str(pdf_file)
+                if pdf_file.exists() and pdf_file.stat().st_size > 1000:  # Check if PDF was created successfully
+                    print(f"✅ PDF documentation saved with xhtml2pdf: {pdf_file}")
+                    return str(pdf_file)
+                else:
+                    raise Exception("PDF file not created or too small")
 
-            except Exception as wkhtml_error:
-                print(f"⚠️  wkhtmltopdf not available: {str(wkhtml_error)}")
-                print("📋 Creating alternative PDF solution...")
+            except Exception as xhtml_error:
+                print(f"⚠️  xhtml2pdf failed: {str(xhtml_error)}")
 
-                # Create a simple text-based PDF alternative
-                self.create_text_pdf_alternative()
-                return None
+                # Method 2: Try wkhtmltopdf if available
+                try:
+                    print("🔄 Attempting PDF generation with wkhtmltopdf...")
+                    # PDF options - optimized for compact layout
+                    pdf_options = {
+                        'page-size': 'A4',
+                        'margin-top': '0.3in',
+                        'margin-right': '0.4in',
+                        'margin-bottom': '0.3in',
+                        'margin-left': '0.4in',
+                        'encoding': 'UTF-8',
+                        'no-outline': None,
+                        'enable-local-file-access': None,
+                        'disable-smart-shrinking': None,
+                        'print-media-type': None,
+                        'dpi': 96,
+                        'zoom': 1.0
+                    }
+
+                    # Use PDF-optimized HTML
+                    html_file = self.create_pdf_optimized_html()
+                    pdfkit.from_file(html_file, str(pdf_file), options=pdf_options)
+
+                    print(f"✅ PDF documentation saved with wkhtmltopdf: {pdf_file}")
+                    return str(pdf_file)
+
+                except Exception as wkhtml_error:
+                    print(f"⚠️  wkhtmltopdf not available: {str(wkhtml_error)}")
+
+                    # Method 3: Create enhanced text-based PDF
+                    print("📋 Creating enhanced text-based PDF solution...")
+                    self.create_enhanced_pdf_alternative()
+                    return None
 
         except Exception as e:
             print(f"❌ PDF generation failed: {str(e)}")
@@ -478,6 +674,12 @@ class DocumentationCompiler:
             story.append(Paragraph("📚 Comprehensive Data Science Curriculum", title_style))
             story.append(Spacer(1, 0.5*inch))
             story.append(Paragraph("Complete Documentation", heading_style))
+            story.append(Spacer(1, 0.25*inch))
+            story.append(Paragraph("Author: Dr. Siddalingaiah H S", normal_style))
+            story.append(Paragraph("Professor, Community Medicine", normal_style))
+            story.append(Paragraph("Shridevi Institute of Medical Sciences and Research Hospital, Tumkur", normal_style))
+            story.append(Paragraph("Email: hssling@yahoo.com | Phone: 8941087719", normal_style))
+            story.append(Spacer(1, 0.25*inch))
             story.append(Paragraph(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", normal_style))
             story.append(Paragraph(f"Total Sections: {len(markdown_files)}", normal_style))
             story.append(PageBreak())
@@ -583,7 +785,14 @@ class DocumentationCompiler:
                 "total_modules": 14,
                 "total_quizzes": 3,
                 "total_projects": 3,
-                "total_exercises": 2
+                "total_exercises": 2,
+                "author": {
+                    "name": "Dr. Siddalingaiah H S",
+                    "title": "Professor, Community Medicine",
+                    "institution": "Shridevi Institute of Medical Sciences and Research Hospital, Tumkur",
+                    "email": "hssling@yahoo.com",
+                    "phone": "8941087719"
+                }
             },
             "structure": {
                 "phases": [
