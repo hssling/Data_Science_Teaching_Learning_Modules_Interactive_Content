@@ -2,11 +2,18 @@
   "metadata": {
     "title": "Comprehensive Data Science Curriculum",
     "version": "1.0.0",
-    "generated": "2025-11-02T21:33:00.243491",
+    "generated": "2025-11-02T21:52:26.986926",
     "total_modules": 14,
     "total_quizzes": 3,
     "total_projects": 3,
-    "total_exercises": 2
+    "total_exercises": 2,
+    "author": {
+      "name": "Dr. Siddalingaiah H S",
+      "title": "Professor, Community Medicine",
+      "institution": "Shridevi Institute of Medical Sciences and Research Hospital, Tumkur",
+      "email": "hssling@yahoo.com",
+      "phone": "8941087719"
+    }
   },
   "structure": {
     "phases": [
