@@ -1,5 +1,15 @@
 # 📚 **COMPREHENSIVE DATA SCIENCE CURRICULUM - FINAL OVERVIEW**
 
+## 👨‍🏫 **Author**
+
+**Dr. Siddalingaiah H S**  
+Professor, Community Medicine  
+Shridevi Institute of Medical Sciences and Research Hospital, Tumkur  
+📧 hssling@yahoo.com  
+📱 8941087719
+
+---
+
 ## **The Complete Data Science Education Ecosystem**
 
 ---

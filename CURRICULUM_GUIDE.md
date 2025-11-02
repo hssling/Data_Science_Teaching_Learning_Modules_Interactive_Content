@@ -1,5 +1,15 @@
 # 📚 **COMPREHENSIVE DATA SCIENCE CURRICULUM - COMPLETE LEARNING GUIDE**
 
+## 👨‍🏫 **Author**
+
+**Dr. Siddalingaiah H S**  
+Professor, Community Medicine  
+Shridevi Institute of Medical Sciences and Research Hospital, Tumkur  
+📧 hssling@yahoo.com  
+📱 8941087719
+
+---
+
 ## 🎯 **Curriculum Overview**
 
 This comprehensive data science curriculum provides a complete learning journey from absolute beginner to industry-ready data scientist. The curriculum is designed with **14 modules**, **interactive assessments**, **practical exercises**, **real-world projects**, and **extensive resources** to ensure learners develop both theoretical knowledge and practical skills.

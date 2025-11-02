@@ -1,6 +1,57 @@
+
+This script helps you set up the complete data science curriculum environment.
+It will:
+1. Check system requirements
+2. Install required packages
+3. Set up development environment
+4. Verify installation
+5. Provide next steps
+
+Usage:
+    python setup_curriculum.py
+
+Or run directly:
+    python setup_curriculum.py --help
+"""
+
+This script helps you set up the complete data science curriculum environment.
+It will:
+1. Check system requirements
+2. Install required packages
+3. Set up development environment
+4. Verify installation
+5. Provide next steps
+
+Usage:
+    python setup_curriculum.py
+
+Or run directly:
+    python setup_curriculum.py --help
+"""
 #!/usr/bin/env python3
 """
 Data Science Curriculum Setup Script
+
+Author: Dr. Siddalingaiah H S
+        Professor, Community Medicine
+        Shridevi Institute of Medical Sciences and Research Hospital, Tumkur
+        Email: hssling@yahoo.com
+        Phone: 8941087719
+
+This script helps you set up the complete data science curriculum environment.
+It will:
+1. Check system requirements
+2. Install required packages
+3. Set up development environment
+4. Verify installation
+5. Provide next steps
+
+Usage:
+    python setup_curriculum.py
+
+Or run directly:
+    python setup_curriculum.py --help
+"""
 ===================================
 
 This script helps you set up the complete data science curriculum environment.
