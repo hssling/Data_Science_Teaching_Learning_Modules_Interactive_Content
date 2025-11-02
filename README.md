@@ -9,6 +9,16 @@
 
 ---
 
+## 👨‍🏫 **Author**
+
+**Dr. Siddalingaiah H S**  
+Professor, Community Medicine  
+Shridevi Institute of Medical Sciences and Research Hospital, Tumkur  
+📧 hssling@yahoo.com  
+📱 8941087719
+
+---
+
 ## 🎯 **What Makes This Curriculum Extraordinary**
 
 This is **not just another data science course**—it's a complete educational ecosystem designed to transform complete beginners into industry-ready data scientists. Every component has been meticulously crafted with production-quality code, comprehensive documentation, and real-world applications.
