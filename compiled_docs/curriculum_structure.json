@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "title": "Comprehensive Data Science Curriculum",
+    "version": "1.0.0",
+    "generated": "2025-11-02T21:33:00.243491",
+    "total_modules": 14,
+    "total_quizzes": 3,
+    "total_projects": 3,
+    "total_exercises": 2
+  },
+  "structure": {
+    "phases": [
+      {
+        "name": "Foundations",
+        "duration": "2-3 months",
+        "modules": [
+          1,
+          2,
+          3
+        ],
+        "focus": "Basics & Programming"
+      },
+      {
+        "name": "Data Engineering",
+        "duration": "2-3 months",
+        "modules": [
+          4,
+          5,
+          6
+        ],
+        "focus": "Data Pipeline"
+      },
+      {
+        "name": "ML & Deep Learning",
+        "duration": "3-4 months",
+        "modules": [
+          7,
+          8,
+          9
+        ],
+        "focus": "Models & Evaluation"
+      },
+      {
+        "name": "Production & Career",
+        "duration": "2-3 months",
+        "modules": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "focus": "MLOps & Professional"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "id": 1,
+      "directory": "01_introduction",
+      "readme": "modules\\01_introduction\\README.md",
+      "examples": [
+        "modules\\01_introduction\\introduction_examples.py"
+      ]
+    },
+    {
+      "id": 2,
+      "directory": "02_mathematics_statistics",
+      "readme": "modules\\02_mathematics_statistics\\README.md",
+      "examples": [
+        "modules\\02_mathematics_statistics\\math_stats_examples.py"
+      ]
+    },
+    {
+      "id": 3,
+      "directory": "03_programming_foundations",
+      "readme": "modules\\03_programming_foundations\\README.md",
+      "examples": []
+    },
+    {
+      "id": 4,
+      "directory": "04_data_collection_storage",
+      "readme": "modules\\04_data_collection_storage\\README.md",
+      "examples": []
+    },
+    {
+      "id": 5,
+      "directory": "05_data_cleaning_preprocessing",
+      "readme": "modules\\05_data_cleaning_preprocessing\\README.md",
+      "examples": []
+    },
+    {
+      "id": 6,
+      "directory": "06_exploratory_data_analysis",
+      "readme": "modules\\06_exploratory_data_analysis\\README.md",
+      "examples": []
+    },
+    {
+      "id": 7,
+      "directory": "07_machine_learning",
+      "readme": "modules\\07_machine_learning\\README.md",
+      "examples": []
+    },
+    {
+      "id": 8,
+      "directory": "08_deep_learning",
+      "readme": "modules\\08_deep_learning\\README.md",
+      "examples": []
+    },
+    {
+      "id": 9,
+      "directory": "09_data_visualization",
+      "readme": "modules\\09_data_visualization\\README.md",
+      "examples": []
+    },
+    {
+      "id": 10,
+      "directory": "10_big_data_technologies",
+      "readme": "modules\\10_big_data_technologies\\README.md",
+      "examples": []
+    },
+    {
+      "id": 11,
+      "directory": "11_cloud_computing",
+      "readme": "modules\\11_cloud_computing\\README.md",
+      "examples": []
+    },
+    {
+      "id": 12,
+      "directory": "12_ethics_best_practices",
+      "readme": "modules\\12_ethics_best_practices\\README.md",
+      "examples": []
+    },
+    {
+      "id": 13,
+      "directory": "13_projects_case_studies",
+      "readme": "modules\\13_projects_case_studies\\README.md",
+      "examples": []
+    },
+    {
+      "id": 14,
+      "directory": "14_career_development",
+      "readme": "modules\\14_career_development\\README.md",
+      "examples": []
+    }
+  ],
+  "resources": {
+    "quizzes": [
+      "quizzes\\module_01_quiz.py",
+      "quizzes\\module_02_statistics_quiz.py",
+      "quizzes\\module_07_machine_learning_quiz.py"
+    ],
+    "exercises": [
+      "exercises\\module_01_exercises.py",
+      "exercises\\module_02_statistics_exercises.py"
+    ],
+    "projects": [
+      "projects\\computer_vision_project.py",
+      "projects\\nlp_sentiment_analysis.py",
+      "projects\\predictive_analytics_project.py"
+    ]
+  }
+}
